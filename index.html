@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园论坛</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="主导航">
+      <a class="brand" href="#" data-page="home">校园论坛</a>
+      <button class="nav-link is-active" type="button" data-page="home">首页</button>
+      <button class="nav-link" type="button" data-page="cas">CAS 项目库</button>
+      <button class="nav-link" type="button" data-page="resources">资源中心</button>
+      <button class="nav-link" type="button" data-page="photos">活动照片</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page is-active" id="home-page" data-page-panel="home">
+      <div class="home-card">
+        <h1>欢迎来到校园资源中心</h1>
+        <p>浏览校园论坛、CAS系统及各类学习生活资源</p>
+        <div class="portal-grid" aria-label="入口导航">
+          <button class="portal-card" type="button" data-page="forum">
+            <span class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-8 0"/><path d="M3 21a7 7 0 0 1 14 0"/><path d="M19 8v6"/><path d="M22 11h-6"/></svg>
+            </span>
+            <strong>校园论坛</strong>
+            <span>交流学习生活</span>
+          </button>
+          <button class="portal-card" type="button" data-page="cas">
+            <span class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><path d="M3 10h18"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 14h4"/><path d="M8 18h8"/></svg>
+            </span>
+            <strong>CAS 项目库</strong>
+            <span>统一身份认证</span>
+          </button>
+          <button class="portal-card" type="button" data-page="resources">
+            <span class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z"/></svg>
+            </span>
+            <strong>资源中心</strong>
+            <span>学习生活资源</span>
+          </button>
+          <button class="portal-card" type="button" data-page="photos">
+            <span class="icon-box" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+            </span>
+            <strong>活动照片</strong>
+            <span>浏览精彩瞬间</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="resources-page" data-page-panel="resources">
+      <div class="content-layout">
+        <aside class="filter-card">
+          <h2>筛选项目</h2>
+          <label>
+            <span>关键词</span>
+            <span class="input-shell">
+              <input id="resource-search" type="search" placeholder="搜索名称、内容、简介">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+            </span>
+          </label>
+          <label>
+            <span>年份</span>
+            <select id="resource-year">
+              <option value="all">全部年份</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="resource-sort">
+              <option value="new">最新</option>
+              <option value="old">最早</option>
+            </select>
+          </label>
+          <div class="filter-group">
+            <h3>分类</h3>
+            <button class="filter-option is-selected" type="button" data-resource-category="all">全部</button>
+            <button class="filter-option" type="button" data-resource-category="论坛">校园论坛</button>
+            <button class="filter-option" type="button" data-resource-category="CAS">CAS系统</button>
+            <button class="filter-option" type="button" data-resource-category="学习资源">学习资源</button>
+            <button class="filter-option" type="button" data-resource-category="校园生活">校园生活</button>
+          </div>
+        </aside>
+
+        <div class="main-column">
+          <div class="section-banner align-left">
+            <h1>资源中心</h1>
+            <p>浏览校园论坛、CAS系统及各类学习生活资源</p>
+          </div>
+          <div class="resource-grid" id="resource-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="photos-page" data-page-panel="photos">
+      <div class="content-layout">
+        <aside class="filter-card">
+          <h2>活动照片筛选</h2>
+          <label>
+            <span>搜索</span>
+            <span class="input-shell">
+              <input id="photo-search" type="search" placeholder="搜索活动名称">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg>
+            </span>
+          </label>
+          <label>
+            <span>年份</span>
+            <select id="photo-year">
+              <option value="all">全部年份</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+            </select>
+          </label>
+          <label>
+            <span>排序</span>
+            <select id="photo-sort">
+              <option value="new">最新</option>
+              <option value="old">最早</option>
+            </select>
+          </label>
+          <div class="filter-group">
+            <h3>选择活动</h3>
+            <button class="filter-option" type="button" data-photo-activity="春季运动会">春季运动会</button>
+            <button class="filter-option" type="button" data-photo-activity="校园文化节">校园文化节</button>
+            <button class="filter-option" type="button" data-photo-activity="毕业典礼">毕业典礼</button>
+            <button class="filter-option" type="button" data-photo-activity="新生迎新会">新生迎新会</button>
+            <button class="filter-option" type="button" data-photo-activity="艺术展览">艺术展览</button>
+          </div>
+        </aside>
+
+        <div class="main-column">
+          <div class="section-banner" id="photo-intro">请从左侧选择一个活动查看照片</div>
+          <div class="photo-grid" id="photo-grid" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="cas-page" data-page-panel="cas">
+      <div class="single-card">
+        <h1>CAS 项目库</h1>
+        <p>统一身份认证项目资料整理中，可从资源中心查看 CAS 使用指南。</p>
+      </div>
+    </section>
+
+    <section class="page" id="forum-page" data-page-panel="forum">
+      <div class="single-card">
+        <h1>校园论坛</h1>
+        <p>校园话题、活动招募与学习经验交流入口。</p>
+      </div>
+    </section>
+  </main>
+
+  <button class="help-button" type="button" aria-label="帮助">?</button>
+  <script src="script.js"></script>
+</body>
+</html>
